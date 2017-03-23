@@ -17,19 +17,22 @@ namespace ArcenalCarCareCenter.Model
         private string lastName;
         private string address;
         private string contact;
+        private string id;
 
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }
         public string Address { get => address; set => address = value; }
         public string Contact { get => contact; set => contact = value; }
+        public string Id { get => id; set => id = value; }
 
-        public Employee(string firstName, string lastName, string address,
+        public Employee(string id, string firstName, string lastName, string address,
                             string contact)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Address = address;
             this.Contact = contact;
+            this.Id = id;
         }
     }
 }

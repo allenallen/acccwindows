@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ArcenalCarCareCenter.Model;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,44 +16,36 @@ namespace ArcenalCarCareCenter
 {
     public partial class Form1 : Form
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly RestClient client = new RestClient("https://acccserver.herokuapp.com");
         public Form1()
         {
             InitializeComponent();
 
-            
-            listBox.DataSource = new List<String>();
-        }
-
-        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RunAsync().Wait();
-        }
+            var req = new RestRequest("query_employee", Method.GET);
+            IRestResponse res = client.Execute(req);
+            var content = res.Content;
+            JObject jRes = JObject.Parse(content);
 
-        private async Task<string> GetEmployeeAsync(string url)
-        {
-         
-            var response = await client.GetAsync("query_employee/");
-            string json = null;
-            if (response.IsSuccessStatusCode)
+            List<Employee> employees = new List<Employee>();
+
+            foreach (var x in jRes)
             {
-                json = await response.Content.ReadAsStringAsync();
-            }
-            return json;
-        }
+                string id = x.Key;
+                string firstName = x.Value[Employee.EMPLOYEE_FIRST_NAME].ToString();
+                string lastName = x.Value[Employee.EMPLOYEE_LAST_NAME].ToString();
+                string address = x.Value[Employee.EMPLOYEE_ADDRESS].ToString();
+                string contact = x.Value[Employee.EMPLOYEE_CONTACT].ToString();
 
-        async Task RunAsync()
-        {
-            client.BaseAddress = new Uri("https://acccserver.herokuapp.com/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            string response = await GetEmployeeAsync("");
-            MessageBox.Show(response);
+                Employee emp = new Employee(id, firstName, lastName, address, contact);
+                employees.Add(emp);
+            }
+
+            MessageBox.Show(employees.First().Id);
         }
     }
 }

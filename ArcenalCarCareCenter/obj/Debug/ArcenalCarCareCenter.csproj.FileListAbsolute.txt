@@ -7,3 +7,16 @@ c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\Arcena
 c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.csproj.GenerateResource.Cache
 c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.exe
 c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.pdb
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\ArcenalCarCareCenter.exe.config
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\ArcenalCarCareCenter.exe
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\ArcenalCarCareCenter.pdb
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\RestSharp.dll
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\RestSharp.xml
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.csprojResolveAssemblyReference.cache
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.Properties.Resources.resources
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.Form1.resources
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.csproj.GenerateResource.Cache
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.exe
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.pdb
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jullien\Documents\GitProjects\acccwindows\ArcenalCarCareCenter\bin\Debug\Newtonsoft.Json.xml
