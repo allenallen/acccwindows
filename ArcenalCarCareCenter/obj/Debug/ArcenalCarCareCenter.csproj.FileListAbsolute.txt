@@ -1,0 +1,9 @@
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\bin\Debug\ArcenalCarCareCenter.exe.config
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\bin\Debug\ArcenalCarCareCenter.exe
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\bin\Debug\ArcenalCarCareCenter.pdb
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.csprojResolveAssemblyReference.cache
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.Properties.Resources.resources
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.Form1.resources
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.csproj.GenerateResource.Cache
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.exe
+c:\users\allen\documents\visual studio 2017\Projects\ArcenalCarCareCenter\ArcenalCarCareCenter\obj\Debug\ArcenalCarCareCenter.pdb
