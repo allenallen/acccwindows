@@ -14,6 +14,7 @@ namespace ArcenalCarCareCenter.Model
         public static string CUSTOMER_CAR_MAKE = "carmake";
         public static string CUSTOMER_CONTACT = "contact";
         public static string CUSTOMER_PLATE = "plate";
+        public static string CUSTOMER_ID = "customerid";
 
         private string firstName;
         private string lastName;

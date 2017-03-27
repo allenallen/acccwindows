@@ -51,14 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DBController.cs" />
+    <Compile Include="Controller\Logger.cs" />
+    <Compile Include="Controller\RemoteDBController.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Database\CacheFactory.cs" />
+    <Compile Include="Model\DB.cs" />
     <Compile Include="Model\Employee.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="Model\JobOrder.cs" />
+    <Compile Include="View\JobOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\JobOrderForm.Designer.cs">
+      <DependentUpon>JobOrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +76,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="View\JobOrderForm.resx">
+      <DependentUpon>JobOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -88,8 +93,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
