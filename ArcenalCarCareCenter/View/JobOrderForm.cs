@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +18,8 @@ namespace ArcenalCarCareCenter
 {
     public partial class Form1 : Form
     {
+        private double totalAmount = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +40,8 @@ namespace ArcenalCarCareCenter
             {
                 txtJONumber.Text = "1";
             }
+
+            txtTotalAmount.Text = Convert.ToString(this.totalAmount);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -52,6 +57,7 @@ namespace ArcenalCarCareCenter
             bool isPaid = checkBoxPaid.Checked;
             bool isReleased = checkBoxReleased.Checked;
             long paymentDate = datePayment.Value.Ticks;
+            string totalAmount = txtTotalAmount.Text;
 
             string[] jobDescription = txtJobDescription.Lines;
             string[] labor = txtLabor.Lines;
@@ -73,7 +79,56 @@ namespace ArcenalCarCareCenter
             }
 
             RemoteDBController.SaveJobOrder(joNumber, "2424", date, employees.ToList(), jobDescription.ToList(),
-                                            laborList, parts.ToList(), amountList, isPaid, paymentDate, isReleased);
+                                            laborList, parts.ToList(), amountList, isPaid, paymentDate, isReleased, totalAmount);
+
+            Form1 form = new Form1();
+            form.Show();
+            this.Close();
+            
+        }
+
+        private void onKeyPress(object sender, KeyPressEventArgs e)
+        {
+            Match match = Regex.Match(e.KeyChar.ToString(), @"(?i)^[a-z]");
+            if(e.KeyChar.Equals(Convert.ToChar(".")))
+            {
+                foreach(string s in txtAmount.Lines)
+                {
+                    if (s.Contains("."))
+                    {
+                        e.Handled = true;
+                    }
+                }
+                foreach (string s in txtLabor.Lines)
+                {
+                    if (s.Contains("."))
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+            if (match.Success)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void calculateAmount(object sender, EventArgs e)
+        {
+            this.totalAmount = 0;
+            foreach (string s in txtLabor.Lines)
+            {
+                double amount = Convert.ToDouble(s);
+                this.totalAmount += amount;
+            }
+
+            foreach (string s in txtAmount.Lines)
+            {
+                double amount = Convert.ToDouble(s);
+                this.totalAmount += amount;
+            }
+
+            txtTotalAmount.Text = Convert.ToString(this.totalAmount);
         }
     }
 }

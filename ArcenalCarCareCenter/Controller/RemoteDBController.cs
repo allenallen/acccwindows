@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ArcenalCarCareCenter.Controller
 {
@@ -16,7 +17,7 @@ namespace ArcenalCarCareCenter.Controller
 
         public static void SaveJobOrder(string joNumber, string customerid, long date, List<string> employees,
                                         List<string> jobDescription, List<double> labor, List<string> parts,
-                                        List<double> amount, bool isPaid, long paymentDate, bool isReleased)
+                                        List<double> amount, bool isPaid, long paymentDate, bool isReleased, string totalAmount)
         {
             JObject jo = new JObject();
             jo[JobOrder.NUMBER] = joNumber;
@@ -30,24 +31,15 @@ namespace ArcenalCarCareCenter.Controller
             jo[JobOrder.IS_PAID] = isPaid;
             jo[JobOrder.PAYMENT_DATE] = paymentDate;
             jo[JobOrder.IS_RELEASED] = isReleased;
+            jo[JobOrder.TOTAL_AMOUNT] = totalAmount;
 
             var req = new RestRequest("new_job_order", Method.POST);
-            req.AddParameter("application/json; charset=utf-8", jo, ParameterType.RequestBody);
+            req.AddParameter("application/json; charset=utf-8", jo.ToString(), ParameterType.RequestBody);
             req.RequestFormat = DataFormat.Json;
 
             try
             {
-                client.ExecuteAsync(req, response =>
-                {
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        Logger.Write(response.Content);
-                    }
-                    else
-                    {
-                        Logger.Write(response.Content);
-                    }
-                });
+                var res = client.Execute(req);
             }
             catch (Exception error)
             {

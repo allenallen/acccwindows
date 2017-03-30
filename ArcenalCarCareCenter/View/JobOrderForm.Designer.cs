@@ -59,6 +59,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.datePayment = new System.Windows.Forms.DateTimePicker();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtJONumber
@@ -206,6 +208,8 @@
             this.txtLabor.Name = "txtLabor";
             this.txtLabor.Size = new System.Drawing.Size(147, 149);
             this.txtLabor.TabIndex = 21;
+            this.txtLabor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onKeyPress);
+            this.txtLabor.Leave += new System.EventHandler(this.calculateAmount);
             // 
             // label10
             // 
@@ -240,6 +244,8 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(147, 149);
             this.txtAmount.TabIndex = 25;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onKeyPress);
+            this.txtAmount.Leave += new System.EventHandler(this.calculateAmount);
             // 
             // label12
             // 
@@ -270,7 +276,7 @@
             // checkBoxPaid
             // 
             this.checkBoxPaid.AutoSize = true;
-            this.checkBoxPaid.Location = new System.Drawing.Point(89, 612);
+            this.checkBoxPaid.Location = new System.Drawing.Point(85, 655);
             this.checkBoxPaid.Name = "checkBoxPaid";
             this.checkBoxPaid.Size = new System.Drawing.Size(47, 17);
             this.checkBoxPaid.TabIndex = 29;
@@ -280,7 +286,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(142, 613);
+            this.label14.Location = new System.Drawing.Point(138, 656);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(74, 13);
             this.label14.TabIndex = 31;
@@ -289,7 +295,7 @@
             // checkBoxReleased
             // 
             this.checkBoxReleased.AutoSize = true;
-            this.checkBoxReleased.Location = new System.Drawing.Point(12, 612);
+            this.checkBoxReleased.Location = new System.Drawing.Point(8, 655);
             this.checkBoxReleased.Name = "checkBoxReleased";
             this.checkBoxReleased.Size = new System.Drawing.Size(71, 17);
             this.checkBoxReleased.TabIndex = 32;
@@ -298,7 +304,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(506, 605);
+            this.btnSave.Location = new System.Drawing.Point(502, 648);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(122, 28);
             this.btnSave.TabIndex = 34;
@@ -317,16 +323,35 @@
             // datePayment
             // 
             this.datePayment.CustomFormat = "mm/dd/yyyy";
-            this.datePayment.Location = new System.Drawing.Point(222, 607);
+            this.datePayment.Location = new System.Drawing.Point(218, 650);
             this.datePayment.Name = "datePayment";
             this.datePayment.Size = new System.Drawing.Size(185, 20);
             this.datePayment.TabIndex = 36;
+            // 
+            // txtTotalAmount
+            // 
+            this.txtTotalAmount.Location = new System.Drawing.Point(481, 595);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Size = new System.Drawing.Size(147, 20);
+            this.txtTotalAmount.TabIndex = 37;
+            this.txtTotalAmount.Text = "0.00";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(405, 598);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(70, 13);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "Total Amount";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 657);
+            this.ClientSize = new System.Drawing.Size(640, 682);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtTotalAmount);
             this.Controls.Add(this.datePayment);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.btnSave);
@@ -397,6 +422,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.DateTimePicker datePayment;
+        private System.Windows.Forms.TextBox txtTotalAmount;
+        private System.Windows.Forms.Label label15;
     }
 }
 
