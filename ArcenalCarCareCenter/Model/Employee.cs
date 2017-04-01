@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace ArcenalCarCareCenter.Model
         public static string EMPLOYEE_LAST_NAME = "lastname";
         public static string EMPLOYEE_ADDRESS = "address";
         public static string EMPLOYEE_CONTACT = "contact";
+        public static string TABLE = "Employee";
 
         private string firstName;
         private string lastName;
@@ -19,9 +21,13 @@ namespace ArcenalCarCareCenter.Model
         private string contact;
         private string id;
 
+        [JsonProperty("firstname")]
         public string FirstName { get => firstName; set => firstName = value; }
+        [JsonProperty("lastname")]
         public string LastName { get => lastName; set => lastName = value; }
+        [JsonProperty("address")]
         public string Address { get => address; set => address = value; }
+        [JsonProperty("contact")]
         public string Contact { get => contact; set => contact = value; }
         public string Id { get => id; set => id = value; }
 

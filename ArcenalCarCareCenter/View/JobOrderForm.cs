@@ -1,5 +1,6 @@
 ﻿using ArcenalCarCareCenter.Controller;
 using ArcenalCarCareCenter.Model;
+using Firebase.Database;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -16,32 +17,33 @@ using System.Windows.Forms;
 
 namespace ArcenalCarCareCenter
 {
-    public partial class Form1 : Form
+    public partial class JobOrderForm : Form
     {
         private double totalAmount = 0;
+        private FirebaseClient firebase;
 
-        public Form1()
+        public JobOrderForm()
         {
             InitializeComponent();
-            DBController.PopulateEmployees();
-            DBController.PopulateJobOrders();
-            DB.GetInstance.JobOrders.Sort((x,y) => 
-                        (Convert.ToInt32(x.JobOrderNumber) < Convert.ToInt32(y.JobOrderNumber)) ? 1 : -1);
+            //DBController.PopulateEmployees();
+            //DBController.PopulateJobOrders();
+            //DB.GetInstance.JobOrders.Sort((x,y) => 
+            //            (Convert.ToInt32(x.JobOrderNumber) < Convert.ToInt32(y.JobOrderNumber)) ? 1 : -1);
 
-            foreach(JobOrder j in DB.GetInstance.JobOrders)
-            {
-                Console.WriteLine("jo: " + j.JobOrderNumber);
-            }
+            //foreach(JobOrder j in DB.GetInstance.JobOrders)
+            //{
+            //    Console.WriteLine("jo: " + j.JobOrderNumber);
+            //}
 
-            if(DB.GetInstance.JobOrders.Count != 0)
-            {
-                txtJONumber.Text = (Convert.ToInt16(DB.GetInstance.JobOrders.First().JobOrderNumber) + 1).ToString();
-            } else
-            {
-                txtJONumber.Text = "1";
-            }
+            //if(DB.GetInstance.JobOrders.Count != 0)
+            //{
+            //    txtJONumber.Text = (Convert.ToInt16(DB.GetInstance.JobOrders.First().JobOrderNumber) + 1).ToString();
+            //} else
+            //{
+            //    txtJONumber.Text = "1";
+            //}
 
-            txtTotalAmount.Text = Convert.ToString(this.totalAmount);
+            //txtTotalAmount.Text = Convert.ToString(this.totalAmount);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -81,7 +83,7 @@ namespace ArcenalCarCareCenter
             RemoteDBController.SaveJobOrder(joNumber, "2424", date, employees.ToList(), jobDescription.ToList(),
                                             laborList, parts.ToList(), amountList, isPaid, paymentDate, isReleased, totalAmount);
 
-            Form1 form = new Form1();
+            JobOrderForm form = new JobOrderForm();
             form.Show();
             this.Close();
             
@@ -129,6 +131,21 @@ namespace ArcenalCarCareCenter
             }
 
             txtTotalAmount.Text = Convert.ToString(this.totalAmount);
+        }
+
+        private void JobOrderForm_Load(object sender, EventArgs e)
+        {
+            firebase = new FirebaseClient("https://arcenalcarcarecenterserver.firebaseio.com/");
+        }
+
+        private async Task getEmployees()
+        {
+            var employees = await firebase.Child(Employee.TABLE).OnceAsync<Employee>();
+            foreach(var e in employees)
+            {
+                Console.WriteLine($"id: {e.Key} | name: {e.Object.FirstName} {e.Object.LastName}");
+            }
+
         }
     }
 }

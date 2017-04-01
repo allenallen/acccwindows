@@ -1,6 +1,6 @@
 ﻿namespace ArcenalCarCareCenter
 {
-    partial class Form1
+    partial class JobOrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -345,7 +345,7 @@
             this.label15.TabIndex = 38;
             this.label15.Text = "Total Amount";
             // 
-            // Form1
+            // JobOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -383,8 +383,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtJONumber);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "JobOrderForm";
+            this.Text = "JobOrderForm";
+            this.Load += new System.EventHandler(this.JobOrderForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
